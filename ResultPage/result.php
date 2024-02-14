@@ -23,8 +23,13 @@
                 </nav>
             </div>
         </header>
-        <div class="chart">
-            <!-- chart.js comes here -->
+        <div class="charts">
+            <div class="chart1">
+                <button class="buttonsName"></button>
+                <div>Chart here</div>
+            </div>
+            <div class="chart2"></div>
+            <div class="chart3"></div>
         </div>
 
     </body>
