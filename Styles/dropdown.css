@@ -1,0 +1,30 @@
+.indexContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  background-color: aquamarine;
+  flex-direction: column;
+}
+.dropdownContainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.indexContainer > h1 {
+  width: auto;
+  height: auto;
+  font-size: 45px;
+  margin-top: 10rem;
+}
+.dropdownHeader {
+  width: 200px;
+  height: 30px;
+}
+.dropdownContent {
+  display: none;
+}
+.visible {
+  display: block;
+}
