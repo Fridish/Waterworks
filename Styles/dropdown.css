@@ -1,3 +1,5 @@
+/* Styles for the dropdown menu */
+
 .indexContainer {
   display: flex;
   justify-content: center;
@@ -5,12 +7,12 @@
   text-align: center;
   width: 100%;
   height: auto;
-  background-color: aquamarine;
   flex-direction: column;
 }
 .dropdownContainer {
   margin-top: 20px;
   margin-bottom: 20px;
+  background-color: aquamarine;
 }
 .indexContainer > h1 {
   width: auto;
@@ -18,13 +20,16 @@
   font-size: 45px;
   margin-top: 10rem;
 }
-.dropdownHeader {
+.dropdownButton {
   width: 200px;
-  height: 30px;
+  height: 20px;
 }
-.dropdownContent {
+#dropdownContent {
   display: none;
 }
-.visible {
+#dropdownContent.active {
   display: block;
+  width: 200px;
+  height: 100px;
+  background-color: aqua;
 }
