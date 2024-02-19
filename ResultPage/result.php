@@ -14,11 +14,11 @@
                     <p>Longtitute</p>
                     <p>Latitude</p>
                     <div class="menu">
-                    <button class="btn-menu">One</button>
-                    <button class="btn-menu">Two</button>
-                    <button class="btn-menu">Three</button>
-                    <button class="btn-menu">Four</button>
-                    <button class="btn-menu">Five</button>
+                    <button class="btn-menu">Today</button>
+                    <button class="btn-menu">Week</button>
+                    <button class="btn-menu">Month</button>
+                    <button class="btn-menu">Year</button>
+                    <button class="btn-menu">Custom date</button>
                     </div>
                 </nav>
             </div>
