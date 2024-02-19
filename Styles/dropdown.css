@@ -1,0 +1,35 @@
+/* Styles for the dropdown menu */
+
+.indexContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+}
+.dropdownContainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: aquamarine;
+}
+.indexContainer > h1 {
+  width: auto;
+  height: auto;
+  font-size: 45px;
+  margin-top: 10rem;
+}
+.dropdownButton {
+  width: 200px;
+  height: 20px;
+}
+#dropdownContent {
+  display: none;
+}
+#dropdownContent.active {
+  display: block;
+  width: 200px;
+  height: 100px;
+  background-color: aqua;
+}
