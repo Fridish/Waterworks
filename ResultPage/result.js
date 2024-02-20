@@ -20,3 +20,7 @@ function convertDate(date) {
 document.getElementById('dateTime').textContent = currentDateTime;
 const startDatePicker = document.getElementById('startDatePicker');
 const endDatePicker = document.getElementById('endDatePicker');
+
+//EVENT LISTENERS
+
+const menuBtns = document.querySelectorAll('.btn-menu'); // Select all buttons
