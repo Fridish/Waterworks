@@ -6,16 +6,41 @@
 	<title></title>
 	<!-- <script type="text/javascript" src="anime.min.js"></script> -->
 </head>
-<body id="body">
-	<div id="chartCont">
+<body>
+	<select id="mSite">
+		<option value="Agnesberg">Agnesberg</option>
+		<option value="Arketjarn">Arketjarn</option>
+		<option value="Eriksberg">Eriksberg</option>
+		<option value="Garda">Garda</option>
+		<option value="Harsjo">Harsjo</option>
+		<option value="Kalleredsbacken">Kalleredsbacken</option>
+		<option value="Landvetter">Landvetter</option>
+		<option value="Levgrensvagen">Levgrensvagen</option>
+		<option value="Larjean">Larjean</option>
+		<option value="MolndalCentrum">MolndalCentrum</option>
+		<option value="Nedsjon">Nedsjon</option>
+		<option value="Rada">Rada</option>
+		<option value="Skars led">Skars led</option>
+		<option value="Slussen">Slussen</option>
+		<option value="Stensjon">Stensjon</option>
+		<option value="Tingstad">Tingstad</option>
+		<option value="Torshamnen">Torshamnen</option>
+	</select>
+	<input type="text" id="stDate">
+	<input type="text" id="edDate">
+	<button id="chartBtn">Create</button>
+	<div id="squareCont">
 		
+	</div>
+	<div id="chartCont">
+
 	</div>
 </body>
 <style type="text/css">
-	#body{
+	#squareCont{
 		width: fit-content;
 		display: grid;
-		grid-template: repeat(30, 1fr) / repeat(20, 1fr);
+		grid-template: repeat(20, 1fr) / repeat(30, 1fr);
 	}
 
 	.square{
@@ -23,8 +48,13 @@
 		width: 20px;
 		background-color: blue;
 	}
+
+	#chartCont > svg{
+		height: 100px;
+		width: 300px;
+		border-style: solid;
+	}
 </style>
 	<!-- <script type="text/javascript" src="animejstest.js"></script> -->
-	<script type="text/javascript" src="chartGen.js"></script>
-	<script type="text/javascript" src="fetchData.js"></script>
+	<script type="text/javascript" src="Waterworks.js"></script>
 </html>
