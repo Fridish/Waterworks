@@ -1,4 +1,4 @@
-import { chart1 } from "./chart1.js";
+//import { chart1 } from "./chart1.js";
 
 const now = new Date();
 const currentDateTime = now.toLocaleString();
@@ -21,6 +21,44 @@ document.getElementById('dateTime').textContent = currentDateTime;
 const startDatePicker = document.getElementById('startDatePicker');
 const endDatePicker = document.getElementById('endDatePicker');
 
-//EVENT LISTENERS
+/* EVENT LISTENERS */
 
 const menuBtns = document.querySelectorAll('.btn-menu'); // Select all buttons
+menuBtns.forEach(el => el.addEventListener('click', event => { 
+    const selectedDate = event.target.value;
+    let endDate;
+    switch(selectedDate){
+        case "today":
+            startDatePicker.value = convertDate(new Date());
+            endDatePicker.value = convertDate(new Date());
+            break;
+        case "week":
+            endDate = new Date(startDatePicker.value);
+            endDate.setDate(endDate.getDate() + 7);
+            endDatePicker.value = convertDate(endDate);
+            break;
+        case "month":
+            endDate = new Date(startDatePicker.value);
+            endDate.setDate(endDate.getDate() + 30);
+            endDatePicker.value = convertDate(endDate);
+            break;
+        case "year":
+            endDate = new Date(startDatePicker.value);
+            endDate.setDate(endDate.getDate() + 365);
+            endDatePicker.value = convertDate(endDate);
+            break;
+    }
+}));
+
+startDatePicker.addEventListener('change', event => {
+    const startDate = event.target.value;
+    endDatePicker.min = startDate;
+});
+
+
+
+
+
+
+
+
