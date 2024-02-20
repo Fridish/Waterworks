@@ -35,7 +35,14 @@
                 </nav>
             </div>
         </header>
-     
+        <div class="charts">
+            <div id="chart1">
+                <button class="buttonsName"></button>
+                <div>Chart here</div>
+            </div>
+            <div class="chart2"></div>
+            <div class="chart3"></div>
+        </div>
 
     </body>
 
