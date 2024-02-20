@@ -1,9 +1,12 @@
-//import { chart1 } from "./chart1.js";
+import { getMeasurements } from '/Functions/APIFunctions.js';
+
+getMeasurements("Agnesberg", "2023-01-01", "2023-01-05").then((fetchedData) => {
+    console.log(fetchedData);
+  });
 
 const now = new Date();
 const currentDateTime = now.toLocaleString();
 
-//chart1(1,2); 
 
 function convertDate(date) {
     // Get the year, month, and day from the date object
@@ -55,7 +58,13 @@ startDatePicker.addEventListener('change', event => {
     endDatePicker.min = startDate;
 });
 
+// ---
 
+getChart.addEventListener('click', (event) => {
+    getMeasurements(city, startDatePicker.value, endDatePicker.value).then((fetchedData) => {
+        console.log(fetchedData);
+    });
+})
 
 
 
