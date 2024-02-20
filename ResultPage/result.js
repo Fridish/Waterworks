@@ -1,7 +1,6 @@
+import { chart1 } from "./chart1.js";
 
 const now = new Date();
 const currentDateTime = now.toLocaleString();
 
-document.getElementById('dateTime').textContent = currentDateTime;
-
-//setInterval(updateTime, 1000);
+//chart1(1,2); 
