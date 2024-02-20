@@ -1,12 +1,31 @@
 import { getMeasurements } from '/Functions/APIFunctions.js';
 
-getMeasurements("Agnesberg", "2023-01-01", "2023-01-05").then((fetchedData) => {
-    console.log(fetchedData);
-  });
-
 const now = new Date();
 const currentDateTime = now.toLocaleString();
 
+
+//lineChart
+const waterLevelChart = new Chart(waterLevelCanvas, {
+    type: 'line',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'Water level in M',
+            data: [],
+            borderColor: "rgba(0,0,255,0.8)",
+            backgroundColor: "rgba(0,0,255,0.5)",
+            fill: true,
+            borderWidth: 1,
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+})
 
 function convertDate(date) {
     // Get the year, month, and day from the date object
@@ -18,6 +37,11 @@ function convertDate(date) {
     var formattedDate = year + '-' + month + '-' + day;
     
     return formattedDate;
+}
+
+//cutting away unnecessary text from the date
+function converDateFromAPI(date){
+    return convertDate(new Date(parseInt(date.substr(6,17))));
 }
 
 document.getElementById('dateTime').textContent = currentDateTime;
@@ -59,10 +83,25 @@ startDatePicker.addEventListener('change', event => {
 });
 
 // ---
+function updateChart(fetchedData){
+    const labels = fetchedData.map((data) => {
+        return converDateFromAPI(data.TimeStamp);
+    });
+    const values = fetchedData.map((data) => {
+        return data.Value;
+    });
+
+    waterLevelChart.data.labels = labels;
+    waterLevelChart.data.datasets.forEach(dataset => {
+        dataset.data = values;
+    });
+    waterLevelChart.update();
+    
+}
 
 getChart.addEventListener('click', (event) => {
     getMeasurements(city, startDatePicker.value, endDatePicker.value).then((fetchedData) => {
-        console.log(fetchedData);
+        updateChart(fetchedData);
     });
 })
 

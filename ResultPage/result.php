@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>SearchPage</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script>
             // Define city for module to use
             const city ="<?= $_GET["city"]; ?>";
@@ -36,7 +37,7 @@
             </div>
         </header>
         <div class="charts">
-            <div id="chart1">
+            <canvas id="waterLevelCanvas"></canvas> 
                 <button class="buttonsName"></button>
                 <div>Chart here</div>
             </div>
