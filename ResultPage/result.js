@@ -116,6 +116,7 @@ getSiteDetails(city).then((data) => {
     long.innerText = `Longtitude: ${data.Long}`;
     lat.innerText = `Latitude: ${data.Lat}`;
     currentWaterLevel.innerText = `Current water level: ${data.MeasureParameters[0].CurrentValue} m`;
+    waterIndicator.style.height = data.MeasureParameters[0].CurrentValue * 50 + "px";
 })
 
 

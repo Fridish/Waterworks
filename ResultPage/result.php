@@ -9,6 +9,8 @@
             // Define city for module to use
             const city ="<?= $_GET["city"]; ?>";
         </script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="./result.css"/>
         <script src="./result.js" type="module">
         </script>
     </head>
@@ -22,6 +24,11 @@
                         <p id="long">Longtitute</p>
                         <p id="lat">Latitude</p>
                         <p id="currentWaterLevel">Current water level: </p>
+                        <div id="waterLevel">
+                            <span class="material-symbols-outlined">water_drop</span>
+                            <div id="waterIndicator"></div>
+                        </div>
+                    </div>
                         <div class="menu">
                         <button class="btn-menu" value="today">Today</button>
                         <button class="btn-menu" value="week">7 days</button>
@@ -40,7 +47,7 @@
         </header>
         <div class="charts">
             <canvas id="waterLevelCanvas"></canvas> 
-                <button class="buttonsName"></button>
+              
         </div>
 
     </body>
