@@ -24,7 +24,7 @@ class Waterworks{
 
 		switch (type){
 		case "test":
-			this.chartGen(values);
+			this.chartGen(cont, values);
 			break;
 		case "line":
 			this.chartJS(cont, 'line', values, stDate, edDate);
@@ -37,7 +37,7 @@ class Waterworks{
 		}
 	}
 
-	static chartGen(values){
+	static chartGen(cont, values){
 		let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 		let line = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
 
@@ -66,7 +66,7 @@ class Waterworks{
 		});
 
 		svg.appendChild(line);
-		chartCont.appendChild(svg);
+		cont.appendChild(svg);
 	}
 
 	static chartJS(cont, type, values, stDate, edDate){
@@ -109,5 +109,42 @@ class Waterworks{
 			day++;
 		}
 		return labels;
+	}
+
+	static async chartToday(cont){
+		let date = new Date();
+		const offset = date.getTimezoneOffset();
+		date = new Date(date.getTime() - (offset*60*1000));
+		let today = date.toISOString().split('T')[0];
+		date = new Date(date.getTime() - 24*60*60*1000);
+		let yesterday = date.toISOString().split('T')[0];
+
+		let values = [];
+
+		for (let i = 0; i < this.getSites().length; i++){
+			let response = await fetch(`https://data.goteborg.se/RiverService/v1.1/Measurements/0f254316-99ab-4a86-90d4-25438b6822cc/${this.getSites()[i]}/Level/${yesterday}/${today}?format=json`);
+			let fetchData = await response.json();
+	
+			fetchData.forEach((index) =>{
+				values.push(index['Value']);
+			});
+		}
+
+		let canvas = document.createElement('canvas');
+
+		new Chart(canvas, {
+			type: 'bar',
+			data: {
+				labels: this.getSitesSE(),
+				datasets: [{
+				    label: "Today's Water Level",
+				    data: values,
+				    fill: false,
+				    tension: 0
+				}]
+			}
+		});
+
+		cont.appendChild(canvas);
 	}
 }
