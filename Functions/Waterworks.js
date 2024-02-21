@@ -3,13 +3,17 @@ class Waterworks{
 		return ['Agnesberg', 'Arketjarn', 'Eriksberg', 'Garda', 'Harsjo', 'Kalleredsbacken', 'Landvetter', 'Levgrensvagen', 'Larjean', 'MolndalCentrum', 'Nedsjon', 'Rada', 'Skars led', 'Slussen', 'Stensjon', 'Tingstad', 'Torshamnen'];
 	}
 
-	static async createChart(site, param, stDate, edDate){
+	static getSitesSE(){
+		return ['Agnesberg', 'Arketjärn', 'Eriksberg', 'Gårda dämme', 'Härsjo dämme', 'Kålleredsbäcken', 'Landvettersjöns dämme', 'Levgrensvägen', 'Lärjeholm', 'Mölndal C', 'Nedsjöns dämme', 'Rådasjön', 'Skårs led', 'Slussen', 'Stensjö dämme', 'Tingstad', 'Torshamnen'];
+	}
+
+	static async createChart(cont, type, site, stDate, edDate){
 		if (!this.getSites().includes(site)){
 			console.log('Site not found');
 			return;
 		}
 
-		let response = await fetch(`https://data.goteborg.se/RiverService/v1.1/Measurements/0f254316-99ab-4a86-90d4-25438b6822cc/${site}/${param}/${stDate}/${edDate}?format=json`);
+		let response = await fetch(`https://data.goteborg.se/RiverService/v1.1/Measurements/0f254316-99ab-4a86-90d4-25438b6822cc/${site}/Level/${stDate}/${edDate}?format=json`);
 		let fetchData = await response.json();
 
 		let values = [];
@@ -18,10 +22,22 @@ class Waterworks{
 			values.push(index['Value']);
 		});
 
-		this.chartGen(values);
+		switch (type){
+		case "test":
+			this.chartGen(values);
+			break;
+		case "line":
+			this.chartJS(cont, 'line', values, stDate, edDate);
+			break;
+		case "bar":
+			this.chartJS(cont, 'bar', values, stDate, edDate);
+			break;
+		default:
+			console.log('Not a valid chart');
+		}
 	}
 
-	static chartGen(data){
+	static chartGen(values){
 		let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 		let line = document.createElementNS('http://www.w3.org/2000/svg', 'polyline');
 
@@ -29,19 +45,19 @@ class Waterworks{
 
 		let xCounter = 0;
 
-		console.log(data);
+		console.log(values);
 
-		const max = Math.max.apply(null, data);
-		const min = Math.min.apply(null, data);
+		const max = Math.max.apply(null, values);
+		const min = Math.min.apply(null, values);
 		console.log("min:", min, "max:", max);
 
 		const margin = 5;
 		const gain = (-100+margin)/(max-min);
 		const bias = min*gain-100+margin/2;
-		const spacing = 300/(data.length-1);
+		const spacing = 300/(values.length-1);
 		console.log("gain:", -gain, "bias:", bias);
 
-		data.forEach((value) =>{
+		values.forEach((value) =>{
 			let point = svg.createSVGPoint();
 			point.x = xCounter;
 			point.y = value*gain-bias;
@@ -51,6 +67,47 @@ class Waterworks{
 
 		svg.appendChild(line);
 		chartCont.appendChild(svg);
+	}
 
+	static chartJS(cont, type, values, stDate, edDate){
+		let canvas = document.createElement('canvas');
+
+		new Chart(canvas, {
+			type: type,
+			data: {
+				labels: this.getDateLabels(values.length, stDate, edDate),
+				datasets: [{
+    				label: mSite.value+" - Vattennivå",
+    				data: values,
+    				fill: false,
+    				tension: 0
+				}],
+			}
+		});
+
+		cont.appendChild(canvas);
+	}
+
+	static getDateLabels(count, stDate, edDate){
+		const monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+		let labels = [];
+
+		let day = +stDate.split('-')[2];
+		let month = +stDate.split('-')[1];
+		let year = +stDate.split('-')[0];
+
+		for (let i = 0; i < count; i++){
+			if (day > monthDays[month-1] + (month == 2) * (year % 4 == 0)){
+				month++;
+				day = 1;
+			}
+			if (month > 12){
+				year++;
+				month = 1;
+			}
+			labels.push(day+"/"+month+" - "+year);
+			day++;
+		}
+		return labels;
 	}
 }

@@ -10,7 +10,7 @@ async function fetchData() {
     cityDetails.forEach((element) => {
       const link = document.createElement("a");
       link.textContent = element.Description;
-      link.href = `/ResultPage/result.php?city=${element.Description}`; // TODO: add link to result page for chosen city
+      link.href = `/ResultPage/result.php?city=${element.Code}`; // TODO: add link to result page for chosen city
       dropdownLinks.appendChild(link);
     });
   } catch (error) {
