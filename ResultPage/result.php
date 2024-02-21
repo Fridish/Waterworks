@@ -17,21 +17,23 @@
         <header>
             <div class="mobile">
                 <nav>
-                    <h2>Name of the area</h2>
-                    <p>Longtitute</p>
-                    <p>Latitude</p>
-                    <p>Water level for the city here?</p>
-                    <div class="menu">
-                    <button class="btn-menu" value="today">Today</button>
-                    <button class="btn-menu" value="week">7 days</button>
-                    <button class="btn-menu" value="month">30 days</button>
-                    <button class="btn-menu" value="year">1 year</button>
-                    <div>
-                        Start date: <input type="date" id="startDatePicker" />
-                        End date: <input type="date" id="endDatePicker" />
-                    </div>
-                    <div>
-                        <button id="getChart">Get Chart</button>
+                    <div id="cityInfo">
+                        <h2 id="cityName">Name of the area</h2>
+                        <p id="long">Longtitute</p>
+                        <p id="lat">Latitude</p>
+                        <p id="currentWaterLevel">Current water level: </p>
+                        <div class="menu">
+                        <button class="btn-menu" value="today">Today</button>
+                        <button class="btn-menu" value="week">7 days</button>
+                        <button class="btn-menu" value="month">30 days</button>
+                        <button class="btn-menu" value="year">1 year</button>
+                        <div>
+                            Start date: <input type="date" id="startDatePicker" />
+                            End date: <input type="date" id="endDatePicker" />
+                        </div>
+                        <div>
+                            <button id="getChart">Get Chart</button>
+                        </div>
                     </div>
                 </nav>
             </div>

@@ -1,4 +1,4 @@
-import { getMeasurements } from '/Functions/APIFunctions.js';
+import { getMeasurements, getSiteDetails } from '/Functions/APIFunctions.js';
 
 const now = new Date();
 const currentDateTime = now.toLocaleString();
@@ -54,24 +54,28 @@ const menuBtns = document.querySelectorAll('.btn-menu'); // Select all buttons
 menuBtns.forEach(el => el.addEventListener('click', event => { 
     const selectedDate = event.target.value;
     let endDate;
+    let startDate = new Date();
     switch(selectedDate){
         case "today":
-            startDatePicker.value = convertDate(new Date());
+            startDatePicker.value = convertDate(new Date()-1);
             endDatePicker.value = convertDate(new Date());
             break;
         case "week":
-            endDate = new Date(startDatePicker.value);
-            endDate.setDate(endDate.getDate() + 7);
+            endDate = new Date();
+            startDate.setDate(endDate.getDate() - 7);
+            startDatePicker.value = convertDate(startDate);
             endDatePicker.value = convertDate(endDate);
             break;
         case "month":
-            endDate = new Date(startDatePicker.value);
-            endDate.setDate(endDate.getDate() + 30);
+            endDate = new Date();
+            startDate.setDate(endDate.getDate() - 30);
+            startDatePicker.value = convertDate(startDate);
             endDatePicker.value = convertDate(endDate);
             break;
         case "year":
-            endDate = new Date(startDatePicker.value);
-            endDate.setDate(endDate.getDate() + 365);
+            endDate = new Date();
+            startDate.setDate(endDate.getDate() - 365);
+            startDatePicker.value = convertDate(startDate);
             endDatePicker.value = convertDate(endDate);
             break;
     }
@@ -100,12 +104,19 @@ function updateChart(fetchedData){
 }
 
 getChart.addEventListener('click', (event) => {
-    getMeasurements(city, startDatePicker.value, endDatePicker.value).then((fetchedData) => {
+    getMeasurements(city, startDatePicker.value, endDatePicker.value).then((fetchedData) => {   
         updateChart(fetchedData);
     });
 })
 
-
+//get city details on load
+getSiteDetails(city).then((data) => {
+    console.log(data);
+    cityName.innerText = data.Description;
+    long.innerText = `Longtitude: ${data.Long}`;
+    lat.innerText = `Latitude: ${data.Lat}`;
+    currentWaterLevel.innerText = `Current water level: ${data.MeasureParameters[0].CurrentValue} m`;
+})
 
 
 

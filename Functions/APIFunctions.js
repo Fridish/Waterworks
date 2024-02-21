@@ -11,14 +11,22 @@ export async function getCityDetails() {
     const response = await fetch(url);
     const data = await response.json();
 
-    // Process the fetched data
-    data.forEach((item) => {
-      console.log(item);
-    });
 
     return data;
   } catch (error) {
     console.log("Error fetching data:", error);
+  }
+}
+
+//adding a function to get info for specific location
+export async function getSiteDetails(city){
+  const url =  `https://data.goteborg.se/RiverService/v1.1/measuresites/0f254316-99ab-4a86-90d4-25438b6822cc/${city}?format=JSON`;
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  } catch(error) {
+    console.timeLog("Error fetching data: ", error);
   }
 }
 
