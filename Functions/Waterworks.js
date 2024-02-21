@@ -77,14 +77,14 @@ class Waterworks{
 			data: {
 				labels: this.getDateLabels(values.length, stDate, edDate),
 				datasets: [{
-    				label: mSite.value+" - Vattennivå",
+    				label: this.getSitesSE()[this.getSites().indexOf(mSite.value)]+" - Water Level",
     				data: values,
     				fill: false,
     				tension: 0
 				}],
 			}
 		});
-
+		cont.textContent = '';
 		cont.appendChild(canvas);
 	}
 
@@ -144,7 +144,6 @@ class Waterworks{
 				}]
 			}
 		});
-
 		cont.appendChild(canvas);
 	}
 }
