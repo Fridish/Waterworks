@@ -1,3 +1,7 @@
+const test = document.getElementById("test");
+
+/* let datas = []; */
+
 // Get city details
 async function getCityDetails() {
   const url =
@@ -6,6 +10,12 @@ async function getCityDetails() {
   try {
     const response = await fetch(url);
     const data = await response.json();
+
+    // Process the fetched data
+    data.forEach((item) => {
+      console.log(item);
+    });
+
     return data;
   } catch (error) {
     console.log("Error fetching data:", error);
@@ -19,6 +29,12 @@ async function getMeasurements(city, dateFrom, dateTo) {
   try {
     const response = await fetch(url);
     const data = await response.json();
+
+    // Process the fetched data
+    data.forEach((item) => {
+      console.log(item);
+    });
+
     return data;
   } catch (error) {
     console.log("Error fetching measaurementdata:", error);
@@ -29,22 +45,15 @@ getMeasurements("Agnesberg", "2023-01-01", "2023-01-05").then((fetchedData) => {
   console.log(fetchedData);
 });
 
-// Call getApi async function
-/* getApi(measurementsUrl)
+getCityDetails()
   .then((fetchedData) => {
-    console.log(fetchedData);
-
-    fetchedData.forEach((data) => {
-      console.log(data);
-      datas.push(data);
-    });
-
-    if (datas.length > 0) {
-      test.innerHTML = datas[0].Value;
-    } else {
-      test.innerHTML = "No data available";
-    }
-  })
+    console.log("Data received:", fetchedData);
+    /* 
+      fetchedData.forEach((data) => {
+        console.log(data);
+      }); */
+     
+ })
   .catch((error) => {
     console.log("Error in getApi:", error);
-  }); */
+  });
