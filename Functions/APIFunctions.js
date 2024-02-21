@@ -3,7 +3,7 @@ const test = document.getElementById("test");
 /* let datas = []; */
 
 // Get city details
-async function getCityDetails() {
+export async function getCityDetails() {
   const url =
     "https://data.goteborg.se/RiverService/v1.1/measuresites/0f254316-99ab-4a86-90d4-25438b6822cc?format=JSON";
 
@@ -52,8 +52,8 @@ getCityDetails()
       fetchedData.forEach((data) => {
         console.log(data);
       }); */
-     
- })
+  })
   .catch((error) => {
     console.log("Error in getApi:", error);
   });
+

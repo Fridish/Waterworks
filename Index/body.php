@@ -20,11 +20,8 @@
           </div> -->
           <div class="dropdown">
               <button class="dropbtn">Välj ort</button>
-              <!-- TODO: Generate links in JS  -->
               <div class="dropdown-content" id="dropdownLinks">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a href="#">Link 3</a>
+                  <!-- TODO: Generate links in JS  -->
               </div>
           </div>
       </div>
