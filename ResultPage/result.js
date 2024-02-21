@@ -57,7 +57,6 @@ menuBtns.forEach(el => el.addEventListener('click', event => {
     let startDate = new Date();
     switch(selectedDate){
         case "today":
-            
             startDate.setDate(startDate.getDate() - 1);
             startDatePicker.value = convertDate(startDate);
             endDatePicker.value = convertDate(new Date());
