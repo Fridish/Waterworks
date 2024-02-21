@@ -1,13 +1,14 @@
+@import "result.css";
+@import "dropdown.css";
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lexend+Mega:wght@400;700&family=Montserrat:wght@400;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:wght@300;400&display=swap");
+
 :root {
   --background1: #30383d;
   --background2: #9fecf6;
   --h1: #ffffff;
-  --searchbar: #EAE1E1;
+  --searchbar: #eae1e1;
   --searchText: #171717;
 }
-
-@import "dropdown.css";
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lexend+Mega:wght@400;700&family=Montserrat:wght@400;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:wght@300;400&display=swap");
 
 body {
   margin: 0 auto;
@@ -24,7 +25,4 @@ h1 {
   letter-spacing: 10px;
   color: var(--h1);
   margin: 18vh 0vh 10vh 0vh;
-}
-
-p {
 }

@@ -64,4 +64,3 @@ getCityDetails()
   .catch((error) => {
     console.log("Error in getApi:", error);
   });
-
