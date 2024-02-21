@@ -39,15 +39,6 @@
         <div class="charts">
             <canvas id="waterLevelCanvas"></canvas> 
                 <button class="buttonsName"></button>
-                <div>Chart here</div>
-            </div>
-            <div class="chart2"></div>
-                <button class="buttonsName"></button>
-                <div>Chart here</div>
-            <div class="chart3">
-                <button class="buttonsName"></button>
-                <div>Chart here</div>
-            </div>
         </div>
 
     </body>
