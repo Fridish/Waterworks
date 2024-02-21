@@ -25,7 +25,7 @@ async function fetchData() {
     cityDetails.forEach((element) => {
       const link = document.createElement("a");
       link.textContent = element.Description;
-      link.href = `/${element.example}`; // TODO: add link to result page for chosen city
+      link.href = `/ResultPage/result.php?${element.Description}`; // TODO: add link to result page for chosen city
       dropdownLinks.appendChild(link);
     });
   } catch (error) {
