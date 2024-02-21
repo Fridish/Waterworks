@@ -112,7 +112,6 @@ getChart.addEventListener('click', (event) => {
 
 //get city details on load
 getSiteDetails(city).then((data) => {
-    console.log(data);
     cityName.innerText = data.Description;
     long.innerText = `Longtitude: ${data.Long}`;
     lat.innerText = `Latitude: ${data.Lat}`;

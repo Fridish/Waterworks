@@ -38,29 +38,9 @@ export async function getMeasurements(city, dateFrom, dateTo) {
     const response = await fetch(url);
     const data = await response.json();
 
-    // Process the fetched data
-    data.forEach((item) => {
-      console.log(item);
-    });
-
     return data;
   } catch (error) {
     console.log("Error fetching measaurementdata:", error);
   }
 }
 
-getMeasurements("Agnesberg", "2023-01-01", "2023-01-05").then((fetchedData) => {
-  console.log(fetchedData);
-});
-
-getCityDetails()
-  .then((fetchedData) => {
-    console.log("Data received:", fetchedData);
-    /* 
-      fetchedData.forEach((data) => {
-        console.log(data);
-      }); */
-  })
-  .catch((error) => {
-    console.log("Error in getApi:", error);
-  });
