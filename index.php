@@ -12,7 +12,7 @@ require __DIR__ . ("/Components/header.php");
         <div class="dropdown">
             <button class="dropbtn">Välj ort</button>
             <div class="dropdown-content" id="dropdownLinks">
-                <!-- TODO: Generate links in JS  -->
+                <!-- Links generated in JS  -->
             </div>
         </div>
     </div>

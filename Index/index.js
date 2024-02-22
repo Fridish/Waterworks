@@ -1,17 +1,4 @@
 // logic for the index dropdown
-/* let indexDropdown = document.getElementById("dropdownHeader");
-let dropdownContent = document.getElementById("dropdownContent");
-indexDropdown.addEventListener("click", toggleContent);
-
-function toggleContent() {
-  console.log("click");
-  dropdownContent.style.animation = "dropDown .3 ease-in-out forwards";
-  if (this.children[1].classList.contains("active")) {
-    this.children[1].classList.remove("active");
-  } else {
-    this.children[1].classList.add("active");
-  }
-} */
 
 import { getCityDetails } from "/../Functions/APIFunctions.js";
 
@@ -26,7 +13,7 @@ async function fetchData() {
       console.log(element);
       const link = document.createElement("a");
       link.textContent = element.Description;
-      link.href = `/ResultPage/result.php?city=${element.Description}`; // TODO: add link to result page for chosen city
+      link.href = `/ResultPage/result.php?city=${element.Description}`; // Links to result page for chosen city
       dropdownLinks.appendChild(link);
     });
   } catch (error) {
