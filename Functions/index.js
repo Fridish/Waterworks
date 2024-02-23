@@ -19,3 +19,5 @@ async function fetchData() {
 }
 
 fetchData();
+
+Waterworks.chartToday(chartCont);
