@@ -112,6 +112,23 @@ class Waterworks{
 	}
 
 	static async chartToday(cont){
+		let overlayText = document.createElement('p');
+		overlayText.textContent = "Loading Today's Water Levels...";
+		let overlay = document.createElement('div');
+		overlay.style.height = '100%';
+		overlay.style.width = '100%';
+		overlay.style.position = 'absolute';
+		overlay.style.top = '0';
+		overlay.style.left = '0';
+		overlay.style.color = 'var(--h1)';
+		overlay.style.backgroundColor = 'var(--background1)';
+		overlay.style.display = 'flex';
+		overlay.style.justifyContent = 'center';
+		overlay.style.alignItems = 'center';
+		overlay.style.transition = '0.7s';
+		overlay.appendChild(overlayText);
+		cont.appendChild(overlay);
+
 		let date = new Date();
 		const offset = date.getTimezoneOffset();
 		date = new Date(date.getTime() - (offset*60*1000));
@@ -144,6 +161,7 @@ class Waterworks{
 				}]
 			}
 		});
+		overlay.classList.add('aniChartContOverlay');
 		cont.appendChild(canvas);
 	}
 }
