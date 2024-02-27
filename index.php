@@ -9,10 +9,11 @@ require __DIR__ . ("/Components/header.php");
 <body>
     <div class="indexContainer">
         <h1>GÖTAÄLV</h1>
+        <div id="chartCont"></div>
         <div class="dropdown">
             <button class="dropbtn">Välj ort</button>
             <div class="dropdown-content" id="dropdownLinks">
-                <!-- TODO: Generate links in JS  -->
+                <!-- Links generated in JS  -->
             </div>
         </div>
     </div>

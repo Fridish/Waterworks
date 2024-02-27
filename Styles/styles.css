@@ -25,3 +25,16 @@ h1 {
   color: var(--h1);
   margin: 18vh 0vh 10vh 0vh;
 }
+
+#chartCont{
+  height: 45vw;
+  max-height: 500px;
+  width: 90vw;
+  max-width: 1000px;
+  margin: 0px 0px 15px 0px;
+  position: relative;
+}
+
+.aniChartContOverlay{
+  opacity: 0;
+}
