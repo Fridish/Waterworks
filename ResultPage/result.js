@@ -12,8 +12,8 @@ const waterLevelChart = new Chart(waterLevelCanvas, {
       {
         label: "Water level in M",
         data: [],
-        borderColor: "rgba(0,0,255,0.8)",
-        backgroundColor: "rgba(0,0,255,0.5)",
+        borderColor: "rgba(93,189,226,0.6)",
+        backgroundColor: "rgba(93,189,226,0.6)",
         fill: true,
         borderWidth: 1,
       },
@@ -24,6 +24,13 @@ const waterLevelChart = new Chart(waterLevelCanvas, {
       y: {
         beginAtZero: true,
       },
+    },
+    gridLines: {
+      color: "#ffffff",
+    },
+    border: {
+      display: false,
+      color: "white",
     },
   },
 });
@@ -116,7 +123,7 @@ getChart.addEventListener("click", (event) => {
 
 //get city details on load
 getSiteDetails(city).then((data) => {
-  cityName.innerText = data.Description;
+  cityName.innerText = data.Description.toUpperCase();
   long.innerText = `Longtitude: ${data.Long}`;
   lat.innerText = `Latitude: ${data.Lat}`;
   currentWaterLevel.innerText = `Current water level: ${data.MeasureParameters[0].CurrentValue} m`;
