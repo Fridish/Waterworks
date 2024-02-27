@@ -11,7 +11,7 @@
         // Define city for module to use
         const city = "<?= $_GET["city"]; ?>";
     </script>
-    <script src="./result.js" type="module">
+    <script src="result.js" type="module">
     </script>
 </head>
 

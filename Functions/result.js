@@ -1,4 +1,4 @@
-import { getMeasurements } from "/Functions/APIFunctions.js";
+import { getMeasurements } from "../Functions/APIFunctions.js";
 
 const now = new Date();
 const currentDateTime = now.toLocaleString();
