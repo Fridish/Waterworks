@@ -1,5 +1,7 @@
 import { getCityDetails } from "../Functions/APIFunctions.js";
 
+Chart.defaults.color = '#ffffff';
+
 // Fetch cities and add links
 const dropdownLinks = document.getElementById("dropdownLinks");
 
