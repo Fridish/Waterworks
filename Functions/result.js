@@ -12,8 +12,6 @@ const waterLevelChart = new Chart(waterLevelCanvas, {
       {
         label: "Water level in M",
         data: [],
-        borderColor: "rgba(0,0,255,0.8)",
-        backgroundColor: "rgba(0,0,255,0.5)",
         fill: true,
         borderWidth: 1,
       },
