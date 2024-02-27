@@ -114,6 +114,7 @@ class Waterworks{
 	static async chartToday(cont){
 		let overlayText = document.createElement('p');
 		overlayText.textContent = "Loading Today's Water Levels...";
+
 		let overlay = document.createElement('div');
 		overlay.style.height = '100%';
 		overlay.style.width = '100%';
@@ -126,6 +127,7 @@ class Waterworks{
 		overlay.style.justifyContent = 'center';
 		overlay.style.alignItems = 'center';
 		overlay.style.transition = '0.7s';
+		
 		overlay.appendChild(overlayText);
 		cont.appendChild(overlay);
 
