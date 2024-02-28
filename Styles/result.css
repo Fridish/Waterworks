@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lexend+Mega:wght@400;700&family=Montserrat:wght@400;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:wght@300;400&display=swap");
+:root {
+  --background1: #30383d;
+  --background2: #444b4d;
+  --h1: #ffffff;
+  --searchbar: #eae1e1;
+  --searchText: #171717;
+}
+
+body {
+  margin: 0 auto;
+  width: 100vw;
+  font-family: "Josefin Sans", sans-serif;
+  background-color: var(--background2);
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  color: var(--h1);
+}
+body > * {
+  max-width: 100vw;
+}
+
+/* we'll have to decide on some margin, for now i use this*/
+.mobile {
+  margin: 3rem;
+}
+#long,
+#lat {
+  margin-top: 0px;
+  font-size: 14px;
+  opacity: 0.6;
+  letter-spacing: 5px;
+}
+#long {
+  margin-bottom: 0px;
+}
+#lat {
+  margin-bottom: 3rem;
+}
+
+h2 {
+  font-size: 45px;
+  font-weight: 400;
+  letter-spacing: 10px;
+  color: var(--h1);
+  margin: 0px;
+}
+
+.btn-menu {
+  background-color: var(--searchbar);
+  border-radius: 15px;
+  color: var(--searchText);
+  padding: 7px 10px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
+  color: var(--background1);
+}
+
+#startDatePicker,
+#endDatePicker {
+  border-radius: 7px;
+  background-color: var(--h1);
+  color: var(--background1);
+  font-family: "Josefin Sans", sans-serif;
+  padding: 2px 2px 2px 2px;
+  border-style: hidden;
+  margin-top: 0.5rem;
+}
+#getChart {
+  background-color: var(--searchbar);
+  border-radius: 15px;
+  color: var(--searchText);
+  padding: 7px 15px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  color: var(--background1);
+}
+
+@media (min-width: 1000px) {
+  canvas {
+    width: 80% !important;
+    height: 600px !important;
+  }
+}
