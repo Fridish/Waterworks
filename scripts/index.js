@@ -1,6 +1,6 @@
-// logic for the index dropdown
+import { getCityDetails } from "./apiCalls.js";
 
-import { getCityDetails } from "/../Functions/APIFunctions.js";
+Chart.defaults.color = "#ffffff";
 
 // Fetch cities and add links
 const dropdownLinks = document.getElementById("dropdownLinks");
@@ -10,10 +10,9 @@ async function fetchData() {
     const cityDetails = await getCityDetails();
     /* console.log(cityDetails); */
     cityDetails.forEach((element) => {
-      console.log(element);
       const link = document.createElement("a");
       link.textContent = element.Description;
-      link.href = `/ResultPage/result.php?city=${element.Description}`; // Links to result page for chosen city
+      link.href = `/result.html?city=${element.Code}`; // TODO: add link to result page for chosen city
       dropdownLinks.appendChild(link);
     });
   } catch (error) {
@@ -22,3 +21,5 @@ async function fetchData() {
 }
 
 fetchData();
+
+Waterworks.chartToday(chartCont);

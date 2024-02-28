@@ -4,14 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SearchPage</title>
+    <title id="cityHeader">SearchPage</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="result.css">
+    <link rel="stylesheet" href="styles/result.css">
     <script>
         // Define city for module to use
-        const city = "<?= $_GET["city"]; ?>";
+        const currentCity = window.location.search;
+        const cityParameters = new URLSearchParams(currentCity);
+        const city = cityParameters.get('city');
+
     </script>
-    <script src="result.js" type="module">
+    <script src="scripts/result.js" type="module">
     </script>
 </head>
 

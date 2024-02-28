@@ -1,7 +1,7 @@
-import { getMeasurements, getSiteDetails } from "../Functions/APIFunctions.js";
+import { getMeasurements, getSiteDetails } from "./apiCalls.js";
 
-Chart.defaults.borderColor = '#b9b2b2';
-Chart.defaults.color = '#ffffff';
+Chart.defaults.borderColor = "#b9b2b2";
+Chart.defaults.color = "#ffffff";
 
 const now = new Date();
 const currentDateTime = now.toLocaleString();
@@ -126,6 +126,7 @@ getChart.addEventListener("click", (event) => {
 
 //get city details on load
 getSiteDetails(city).then((data) => {
+  cityHeader.innerText = data.Description.toUpperCase();
   cityName.innerText = data.Description.toUpperCase();
   long.innerText = `Longtitude: ${data.Long}`;
   lat.innerText = `Latitude: ${data.Lat}`;
