@@ -11,6 +11,7 @@
 
 body {
   margin: 0 auto;
+  height: 100vh;
   width: 100%;
   font-family: "Josefin Sans", sans-serif;
   background-color: var(--background1);
@@ -18,6 +19,11 @@ body {
   display: flex;
   margin-bottom: 200px;
 }
+
+/* .wrapper {
+  height: 110vh;
+  overflow: hidden;
+} */
 
 h1 {
   font-size: 45px;
@@ -46,22 +52,50 @@ footer {
 /*--- Water Anim ---*/
 
 .wave-box {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   width: 100%;
   position: absolute;
+  overflow: hidden;
+  height: 150vh;
 }
 
 .svg1,
-.svg2 {
+.svg2bg {
   position: absolute;
   left: 0;
   transition: transform 3s ease-in-out;
 }
 
 .svg1 {
-  top: -2%;
+  top: 13%;
 }
 
 .svg2 {
+  position: absolute;
+  bottom: 82%;
+  left: 0;
+}
+
+.svg2bg {
+  width: 100%;
+  height: 32vh;
+  position: absolute;
   bottom: 0;
+}
+
+.fillBox {
+  background-color: var(--background2);
+  width: 100%;
+  height: 56.2vh;
+  position: absolute;
+  bottom: -93%;
+}
+
+@media screen and (max-width: 650px) {
+  body {
+    height: unset;
+  }
+  .svg1 {
+    top: 32%;
+  }
 }
