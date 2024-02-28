@@ -1,7 +1,7 @@
-import { getMeasurements, getSiteDetails } from "../Functions/APIFunctions.js";
+import { getMeasurements, getSiteDetails } from "./APIFunctions.js";
 
-Chart.defaults.borderColor = '#b9b2b2';
-Chart.defaults.color = '#ffffff';
+Chart.defaults.borderColor = "#b9b2b2";
+Chart.defaults.color = "#ffffff";
 
 const now = new Date();
 const currentDateTime = now.toLocaleString();
