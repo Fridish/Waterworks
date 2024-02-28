@@ -11,11 +11,9 @@
         // Define city for module to use
         const currentCity = window.location.search;
 
-// Parse the query string into a URLSearchParams object
 const cityParameters = new URLSearchParams(currentCity);
 
-// Access individual query parameters using the get() method
-const city = cityParameters.get('parameterName');
+const city = cityParameters.get('city');
     </script>
     <script src="scripts/result.js" type="module">
     </script>
