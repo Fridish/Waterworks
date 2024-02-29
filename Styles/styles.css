@@ -68,6 +68,7 @@ footer {
 
 .svg1 {
   top: 0;
+  z-index: 999;
 }
 
 .svg2 {
