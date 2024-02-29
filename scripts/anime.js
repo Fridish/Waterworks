@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
     svg1.style.transform = "translateY(-100%)";
     if (!x.matches) {
-      svg2.style.transform = "translateY(200%)";
+      svg2.style.transform = "translateY(240%)";
     } else {
       svg2.style.transform = "translateY(42%)";
     }
