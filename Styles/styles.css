@@ -67,7 +67,8 @@ footer {
 }
 
 .svg1 {
-  top: 13%;
+  top: 0;
+  z-index: 999;
 }
 
 .svg2 {
@@ -94,8 +95,5 @@ footer {
 @media screen and (max-width: 650px) {
   body {
     height: unset;
-  }
-  .svg1 {
-    top: 32%;
   }
 }
