@@ -32,7 +32,14 @@ export async function getSiteDetails(city) {
 
 // Get timespecifik measurements for a city
 export async function getMeasurements(city, dateFrom, dateTo) {
-  const url = `https://data.goteborg.se/RiverService/v1.1/Measurements/${apiKey}/${city}/Level/${dateFrom}/${dateTo}?format=json`;
+
+  //if we want to check values for one day only then we get all measure points from that day, otherwise get the average for the day
+  let getAverageValues = true;
+  if(new Date(dateTo) - new Date(dateFrom) <= 86400000){
+     getAverageValues = false;
+  }
+
+  const url = `https://data.goteborg.se/RiverService/v1.1/Measurements/${apiKey}/${city}/Level/${dateFrom}/${dateTo}?format=json&dailyaveragevalues=${getAverageValues}`;
 
   try {
     const response = await fetch(url);

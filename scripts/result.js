@@ -38,6 +38,7 @@ const waterLevelChart = new Chart(waterLevelCanvas, {
   },
 });
 
+
 function convertDate(date) {
   // Get the year, month, and day from the date object
   var year = date.getFullYear();
@@ -50,12 +51,26 @@ function convertDate(date) {
   return formattedDate;
 }
 
-//cutting away unnecessary text from the date
-function converDateFromAPI(date) {
-  return convertDate(new Date(parseInt(date.substr(6, 17))));
+function convertTime(date) {
+  //convert the date to a timestring and then cut it down to only show the first 5 letters (HH:MM)
+  return date.toTimeString().substr(0,5);
 }
 
-document.getElementById("dateTime").textContent = currentDateTime;
+
+
+//cutting away unnecessary text from the date
+function converDateFromAPI(date) {
+
+  // check if we are showing one day or multiple days
+  if(new Date(endDatePicker.value) - new Date(startDatePicker.value) <= 86400000){
+    //If we only check one day, we want to show the time
+    return convertTime(new Date(parseInt(date.substr(6, 17))));
+  } else {
+    //Or if we check multiple days, we want to show the date
+    return convertDate(new Date(parseInt(date.substr(6, 17))));
+  }
+}
+
 const startDatePicker = document.getElementById("startDatePicker");
 const endDatePicker = document.getElementById("endDatePicker");
 
@@ -131,3 +146,18 @@ getSiteDetails(city).then((data) => {
   lat.innerText = `Latitude: ${data.Lat}`;
   currentWaterLevel.innerText = `Current water level: ${data.MeasureParameters[0].CurrentValue} m`;
 });
+
+//loading today's values on page load
+function loadInitialGraph(){
+  const today = new Date();
+  endDatePicker.value = convertDate(today);
+  today.setDate(today.getDate() - 1);
+  startDatePicker.value = convertDate(today);
+  getMeasurements(city, startDatePicker.value, endDatePicker.value).then(
+    (fetchedData) => {
+      updateChart(fetchedData);
+    }
+  );
+}
+
+loadInitialGraph();
