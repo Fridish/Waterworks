@@ -1,3 +1,3 @@
 # Waterworks
 
-Deployed at: https://sputnik.zone/school/waterworks/index.php
+Deployed at: https://fridish.github.io/Waterworks/

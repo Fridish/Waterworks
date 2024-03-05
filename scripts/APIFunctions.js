@@ -1,7 +1,5 @@
-import apiKey from './variables.js';
+import apiKey from "./variables.js";
 const test = document.getElementById("test");
-
-//api-key:
 
 /* let datas = []; */
 // Get city details
